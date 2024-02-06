@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HandicraftController;
+use App\Http\Controllers\ProductController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +26,13 @@ Route::controller(HandicraftController::class)->prefix('handicraft')->group(func
     Route::post('/', 'store');
     Route::get('/{id}', 'show');
     Route::put('/{id}', 'update');
+    Route::delete('/{id}', 'destroy');
+});
+
+Route::controller(ProductController::class)->prefix('product')->group(function () {
+    Route::get('/', 'index');
+    Route::post('/', 'store');
+    Route::get('/{id}', 'show');
+    Route::post('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
 });
